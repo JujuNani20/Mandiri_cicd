@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Konselor;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KonselorController extends Controller
@@ -17,7 +18,14 @@ class KonselorController extends Controller
     }
 
     public function store(Request $request){
+        $user=User::create([
+            'name'      => $request->nama,
+            'email'   => $request->email,
+            'password'     => $request->password
+        ]);
+
         Konselor::create([
+            'user_id'   => $user->id,
             'nama'      => $request->nama,
             'jurusan'   => $request->jurusan,
             'no_hp'     => $request->no_hp,

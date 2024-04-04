@@ -22,7 +22,7 @@ class KonselorController extends Controller
             'name'      => $request->nama,
             'email'   => $request->email,
             'password'     => $request->password
-        ]);
+        ])->assignRole('konselor');
 
         Konselor::create([
             'user_id'   => $user->id,

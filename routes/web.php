@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KonselorController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Konselor\KonselorController as KonselorKonselorController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -57,6 +58,7 @@ Route::post('/daftar-pengguna/edit/{id?}/proses', [PenggunaController::class, 'u
 
 Route::get('/daftar-pengguna/hapus/{id?}', [PenggunaController::class, 'destroy'])->name('daftar-pengguna.destroy');
 
-
-
+Route::get('/profile/konselor', [KonselorKonselorController::class, 'profile'])->name('konselor.profile');
+Route::post('/profile/konselor/update', [KonselorKonselorController::class, 'profileUpdate'])->name('konselor.profile.update');
+Route::post('/profile/konselor/update-foto', [KonselorKonselorController::class, 'profileUpdateFoto'])->name('konselor.profile.update-foto');
 

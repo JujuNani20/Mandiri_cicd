@@ -25,6 +25,13 @@ class LoginController extends Controller
     public function process(Request $request){
         $user = User::where('email', $request->email)->first();
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+
+            if(Auth::user()->getRoleNames()->first() == 'konselor')
+                return redirect()->route('konselor.profile');
+
+            if(Auth::user()->getRoleNames()->first() == 'pengguna')
+                return redirect()->route('pengguna.profile');
+
             return redirect()->route('dashboard');
         }else{
             return redirect()->back()->with('error', 'Username atau password salah!');

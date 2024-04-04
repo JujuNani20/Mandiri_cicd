@@ -11,18 +11,7 @@
             <div class="card-body">
                 <form action="{{ route('daftar-konselor.store') }}" class="form-horizontal" method="POST">
                     @csrf
-                    <div class=" row mb-4">
-                        <label class="col-md-3 form-label">Email</label>
-                        <div class="col-md-9">
-                            <input name="email" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class=" row mb-4">
-                        <label class="col-md-3 form-label">Password</label>
-                        <div class="col-md-9">
-                            <input name="password" type="text" class="form-control">
-                        </div>
-                    </div>
+                  
                     <div class=" row mb-4">
                         <label class="col-md-3 form-label">Nama Konselor</label>
                         <div class="col-md-9">
